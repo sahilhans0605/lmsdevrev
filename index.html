@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Library Management</h1>
+  </header>
+
+  <div class="container">
+    <div class="user-controls">
+      <button id="login-btn">Login</button>
+      <button id="signup-btn">Signup</button>
+    </div>
+
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search...">
+      <ul id="suggestions"></ul>
+    </div>
+
+    <div class="books-container">
+      <ul id="book-list"></ul>
+    </div>
+
+    <div class="pagination">
+      <button id="load-more-btn">Load More</button>
+    </div>
+
+    <footer class="footer">
+      <p>Total Books: <span id="total-books"></span></p>
+      <button id="cart-btn">Cart</button>
+    </footer>
+  </div>
+
+  <div class="overlay" id="login-overlay">
+    <div class="login-modal">
+      <span class="close-btn" id="login-close-btn">&times;</span>
+      <h2>Login</h2>
+      <form>
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <button type="submit">Login</button>
+        <p>Don't have an account? <a id="signup-link">Signup</a></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="overlay" id="signup-overlay">
+    <div class="signup-modal">
+      <span class="close-btn" id="signup-close-btn">&times;</span>
+      <h2>Signup</h2>
+      <form>
+        <input type="text" placeholder="Username">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button type="submit">Signup</button>
+        <p>Already have an account? <a id="login-link">Login</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // Get the login and signup buttons
+    const loginBtn = document.getElementById('login-btn');
+    const signupBtn = document.getElementById('signup-btn');
+
+    // Add event listeners to the buttons
+    loginBtn.addEventListener('click', showLoginOverlay);
+    signupBtn.addEventListener('click', showSignupOverlay);
+
+    // Function to show the login overlay
+    function showLoginOverlay() {
+      const loginOverlay = document.getElementById('login-overlay');
+      loginOverlay.style.display = 'block';
+    }
+
+    // Function to show the signup overlay
+    function showSignupOverlay() {
+      const signupOverlay = document.getElementById('signup-overlay');
+      signupOverlay.style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>
